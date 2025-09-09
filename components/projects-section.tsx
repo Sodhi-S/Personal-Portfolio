@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 export function ProjectsSection() {
   const projects = [
     {
-      title: "This Website",
+      title: "THIS WEBSITE",
       description: "I mean isn't this kind of a project ??? I'd consider it to be",
       tech: ["TypeScript", "Next.js", "Shadcn", "Tailwind CSS"],
       status: "COMPLETED",
@@ -30,7 +30,7 @@ export function ProjectsSection() {
       link: "https://github.com/achow111/go-phish-",
     },
     {
-      title: "Credit Card Fraud Detection",
+      title: "CREDIT CARD FRAUD DETECTION",
       description: "Credit card fraud detection using machine learning",
       tech: ["Python", "Pandas", "Scikit Learn", "MatPlotLib"],
       status: "COMPLETED",
