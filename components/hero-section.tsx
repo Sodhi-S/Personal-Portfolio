@@ -1,11 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import RaceCarGameModal from "@/components/RaceCarGameModal"
 
 export function HeroSection() {
   return (
-    <section className="pt-24 pb-16 px-4">
+    <section className="pt-32 pb-44 px-4">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center space-y-8">
           {/* Mario-style title */}
@@ -38,20 +38,7 @@ export function HeroSection() {
           </div>
 
           <div className="flex justify-center gap-4">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 border-4 border-orange-500 hover:text-black"
-                >
-                  START GAME
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogTitle>Coming Soon</DialogTitle>
-                <div className="text-center text-lg">This feature is coming soon!</div>
-              </DialogContent>
-            </Dialog>
+            <RaceCarGameModal />
             <a
               href="/resume.pdf"
               target="_blank"

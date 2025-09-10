@@ -47,7 +47,7 @@ export function Header() {
                     ${
                       activeSection === item.id
                         ? "bg-yellow-400 text-black border-orange-500"
-                        : "text-white hover:text-black hover:bg-orange-500 border-transparent hover:border-yellow-400"
+                        : "text-white hover:text-white hover:bg-orange-500 border-transparent hover:border-yellow-400"
                     }
                   `}
                 >

@@ -102,7 +102,7 @@ export function AboutMe() {
               </p>
 
               <p>
-              - To working for startup companies.
+              - Working for startup companies.
               </p>
 
               <p>
