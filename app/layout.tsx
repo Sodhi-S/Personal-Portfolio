@@ -9,6 +9,13 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Sahej Sodhi | Portfolio",
   description: "Data Scientist & Software Developer - Portfolio",
+  icons: {
+    icon: [
+      { url: "/browser.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    apple: "/browser.png",
+  },
 }
 
 export default function RootLayout({
