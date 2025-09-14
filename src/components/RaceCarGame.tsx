@@ -78,7 +78,7 @@ export default function RetroRacecarGame() {
     isRunning: true,
     score: 0,
     currentExperience: 0,
-    gameSpeed: 1.0,
+    gameSpeed: 1.5,
     gameComplete: false,
   })
 
@@ -269,7 +269,7 @@ export default function RetroRacecarGame() {
       isRunning: true,
       score: 0,
       currentExperience: 0,
-      gameSpeed: 1.0,
+      gameSpeed: 1.5,
       gameComplete: false,
     })
     setCar({
