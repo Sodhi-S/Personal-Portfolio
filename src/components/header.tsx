@@ -59,11 +59,10 @@ export function Header() {
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
                   aria-label={item.label}
-                  className={`px-2 py-1 text-base border-2 transition-all duration-200 ${
-                    activeSection === item.id
+                  className={`px-2 py-1 text-base border-2 transition-all duration-200 ${activeSection === item.id
                       ? "bg-yellow-400 border-orange-500"
                       : "border-transparent hover:border-yellow-400"
-                  }`}
+                    }`}
                 >
                   {item.icon}
                 </button>
@@ -89,11 +88,10 @@ export function Header() {
             key={item.id}
             variant="ghost"
             onClick={() => scrollTo(item.id)}
-            className={`w-full justify-start px-3 py-2 font-arcade text-[10px] font-bold tracking-wider transition-all duration-200 border-2 cursor-pointer ${
-              activeSection === item.id
+            className={`w-full justify-start px-3 py-2 font-arcade text-[10px] font-bold tracking-wider transition-all duration-200 border-2 cursor-pointer ${activeSection === item.id
                 ? "bg-yellow-400 text-black border-orange-500"
                 : "text-white hover:text-white hover:bg-orange-500 border-transparent hover:border-yellow-400"
-            }`}
+              }`}
           >
             <span className="mr-3">{item.icon}</span>
             {item.label}
