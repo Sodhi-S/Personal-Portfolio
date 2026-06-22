@@ -19,8 +19,8 @@ export default function RaceCarGameModal({ triggerLabel = "START GAME" }: RaceCa
           {triggerLabel}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-4xl w-full">
-        <DialogTitle>Career Journey Game</DialogTitle>
+      <DialogContent className="sm:max-w-3xl w-full bg-black border-4 border-yellow-400">
+        <DialogTitle className="sr-only">Career Racer &apos;85</DialogTitle>
         <RetroRacecarGame />
       </DialogContent>
     </Dialog>

@@ -27,7 +27,7 @@ export function AboutSection() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-white font-bold">CLASS:</span>
-                <span className="text-orange-500">Data Scientist / Developer</span>
+                <span className="text-orange-500">Data Engineer / Developer</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-white font-bold">LEVEL:</span>

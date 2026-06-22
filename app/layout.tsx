@@ -2,9 +2,18 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
+
+// codeman38's original "Press Start" — http://www.zone38.net/
+const pressStart2P = localFont({
+  src: "../public/fonts/PressStart.ttf",
+  weight: "400",
+  variable: "--font-press-start-2p",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Sahej Sodhi | Portfolio",
@@ -25,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-mono ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`font-mono ${GeistSans.variable} ${GeistMono.variable} ${pressStart2P.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

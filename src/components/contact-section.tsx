@@ -52,11 +52,11 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 bg-black">
+    <section className="py-24 px-4 bg-black">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2">&gt; WARP ZONE...</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">CONNECT & COLLABORATE</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">CONNECT & COLLABORATE</h2>
           <p className="text-white max-w-2xl mx-auto">
             Ready the next level? Let's team up and build something super! Don't worry, crossplay is enabled
           </p>
@@ -71,7 +71,7 @@ export function ContactSection() {
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Image src={method.icon} alt={method.label} width={32} height={32} style={{ display: 'inline', verticalAlign: 'middle' }} />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">{method.label}</h3>
+              <h3 className="text-sm md:text-base font-bold text-black mb-2">{method.label}</h3>
               <p className="text-black text-sm mb-4 font-medium">{method.value}</p>
               <Button
                 size="sm"
@@ -85,7 +85,7 @@ export function ContactSection() {
         </div>
 
         <div className="p-8 bg-yellow-400 border-4 border-orange-500">
-          <h3 className="text-xl font-bold text-black mb-6 text-center">MESSAGE BLOCK</h3>
+          <h3 className="text-sm md:text-base font-bold text-black mb-6 text-center">MESSAGE BLOCK</h3>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-4">

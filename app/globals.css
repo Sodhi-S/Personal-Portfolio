@@ -75,6 +75,7 @@
 }
 
 @theme inline {
+  --font-arcade: var(--font-press-start-2p);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -146,4 +147,74 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* Smooth single-page scroll + offset anchors below the fixed top bar */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* 80s arcade pixel font (codeman38's "Press Start") for all headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-press-start-2p), monospace !important;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* Apply the pixel font on arcade chrome (nav, buttons, score, prompts) */
+.font-arcade {
+  font-family: var(--font-press-start-2p), monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Opt a section out of the pixel headings — keep the normal body font */
+.no-pixel h1,
+.no-pixel h2,
+.no-pixel h3,
+.no-pixel h4,
+.no-pixel h5,
+.no-pixel h6 {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace !important;
+  letter-spacing: normal;
+}
+
+/* …but allow a specific heading back into the pixel font */
+.no-pixel .pixel-title {
+  font-family: var(--font-press-start-2p), monospace !important;
+  letter-spacing: 0.02em;
+}
+
+/* 80s arcade: blinking cursor / prompt */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1s steps(1, end) infinite;
+}
+
+/* CRT scanline overlay */
+.crt-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }

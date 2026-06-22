@@ -1,48 +1,14 @@
-export function SkillsSection() {
-  const skillCategories = [
-    {
-      title: "DATA SCIENCE",
-      icon: "📊",
-      skills: [
-        { name: "Python", level: 95 },
-        { name: "Machine Learning", level: 90 },
-        { name: "Deep Learning", level: 85 },
-        { name: "Statistics", level: 88 },
-        { name: "Data Visualization", level: 92 },
-      ],
-    },
-    {
-      title: "SOFTWARE DEV",
-      icon: "💻",
-      skills: [
-        { name: "JavaScript/TypeScript", level: 93 },
-        { name: "React/Next.js", level: 90 },
-        { name: "Node.js", level: 87 },
-        { name: "SQL/NoSQL", level: 85 },
-        { name: "Cloud Platforms", level: 82 },
-      ],
-    },
-    {
-      title: "TOOLS & TECH",
-      icon: "🛠️",
-      skills: [
-        { name: "Git/GitHub", level: 95 },
-        { name: "Docker", level: 80 },
-        { name: "AWS/GCP", level: 78 },
-        { name: "Jupyter/Colab", level: 92 },
-        { name: "Linux/Unix", level: 85 },
-      ],
-    },
-  ]
+import { skillCategories } from "@/data/skills"
 
+export function SkillsSection() {
   return (
-    <section id="skills" className="py-16 px-4 bg-black">
+    <section className="py-16 px-4 bg-black">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2">&gt; POWER-UP SKILLS...</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">POWER-UPS & ABILITIES</h2>
+          <h2 className="pixel-title text-3xl md:text-4xl font-bold text-white mb-4">POWER-UPS & ABILITIES</h2>
           <p className="text-white max-w-2xl mx-auto">
-            Each skill block collected through countless coding adventures and data quests.
+            Skills Progress
           </p>
         </div>
 
@@ -51,7 +17,7 @@ export function SkillsSection() {
             <div key={categoryIndex} className="p-6 bg-yellow-400 border-4 border-orange-500">
               <div className="flex items-center mb-6">
                 <div className="text-2xl mr-3">{category.icon}</div>
-                <h3 className="text-lg font-bold text-black tracking-wider">{category.title}</h3>
+                <h3 className="text-xs md:text-sm font-bold text-black tracking-wider leading-relaxed">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
