@@ -208,6 +208,141 @@ h6 {
   animation: blink 1s steps(1, end) infinite;
 }
 
+/* Pac-Man chase scene (replaces the hero mushroom) */
+.pac-stage {
+  position: relative;
+  width: 20rem;
+  max-width: 88vw;
+  height: 3.5rem;
+  background: #000;
+  border: 4px solid #ff8c00;
+  overflow: hidden;
+}
+.pac-runner {
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  z-index: 3;
+  animation: pac-travel 4s linear infinite;
+}
+.pacman {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: #ffd700;
+  border-radius: 50%;
+  clip-path: polygon(50% 50%, 100% 18%, 100% 0, 0 0, 0 100%, 100% 100%, 100% 82%);
+  animation: pac-chomp 0.4s infinite;
+}
+.pacman::after {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: 1.15rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #000;
+}
+.ghost-runner {
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  z-index: 2;
+  animation: pac-travel 4s linear infinite;
+}
+.ghost-runner.g1 {
+  animation-delay: 0.35s;
+}
+.ghost-runner.g2 {
+  animation-delay: 0.6s;
+}
+.ghost-runner.g3 {
+  animation-delay: 0.85s;
+}
+.ghost-runner.g4 {
+  animation-delay: 1.1s;
+}
+.ghost-svg {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.pac-dot {
+  position: absolute;
+  top: calc(50% - 0.3rem);
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #ffd700;
+  z-index: 1;
+}
+.pac-dot.d1 {
+  left: 2.5rem;
+  animation: pac-eat-1 4s linear infinite;
+}
+.pac-dot.d2 {
+  left: 5.5rem;
+  animation: pac-eat-2 4s linear infinite;
+}
+.pac-dot.d3 {
+  left: 8.5rem;
+  animation: pac-eat-3 4s linear infinite;
+}
+.pac-dot.d4 {
+  left: 11.5rem;
+  animation: pac-eat-4 4s linear infinite;
+}
+.pac-dot.d5 {
+  left: 14.5rem;
+  animation: pac-eat-5 4s linear infinite;
+}
+.pac-dot.d6 {
+  left: 17.5rem;
+  animation: pac-eat-6 4s linear infinite;
+}
+@keyframes pac-travel {
+  from {
+    transform: translateX(-3rem);
+  }
+  to {
+    transform: translateX(23rem);
+  }
+}
+@keyframes pac-chomp {
+  0%,
+  100% {
+    clip-path: polygon(50% 50%, 100% 18%, 100% 0, 0 0, 0 100%, 100% 100%, 100% 82%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 100% 49%, 100% 0, 0 0, 0 100%, 100% 100%, 100% 51%);
+  }
+}
+@keyframes pac-eat-1 {
+  0%, 17% { opacity: 1; }
+  18%, 100% { opacity: 0; }
+}
+@keyframes pac-eat-2 {
+  0%, 28% { opacity: 1; }
+  29%, 100% { opacity: 0; }
+}
+@keyframes pac-eat-3 {
+  0%, 40% { opacity: 1; }
+  41%, 100% { opacity: 0; }
+}
+@keyframes pac-eat-4 {
+  0%, 52% { opacity: 1; }
+  53%, 100% { opacity: 0; }
+}
+@keyframes pac-eat-5 {
+  0%, 63% { opacity: 1; }
+  64%, 100% { opacity: 0; }
+}
+@keyframes pac-eat-6 {
+  0%, 75% { opacity: 1; }
+  76%, 100% { opacity: 0; }
+}
+
 /* CRT scanline overlay */
 .crt-scanlines {
   background-image: repeating-linear-gradient(
