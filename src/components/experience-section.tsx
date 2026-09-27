@@ -53,7 +53,7 @@ export function ExperienceSection() {
     <section className="no-pixel py-24 px-4 bg-black">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <div className="text-orange-500 text-sm font-bold tracking-wider mb-2">&gt; BOSS BATTLES CLEARED...</div>
+          <div className="text-orange-500 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; BOSS BATTLES CLEARED...</div>
           <h2 className="pixel-title text-3xl md:text-4xl font-bold text-white mb-4">QUEST LOG</h2>
           <p className="text-white max-w-2xl mx-auto">
             Bosses Defeated

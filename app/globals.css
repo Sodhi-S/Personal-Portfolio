@@ -553,15 +553,26 @@ h6 {
   /* Night-purple, slightly see-through so the sunset shows behind sections */
   --color-black: rgb(22 8 48 / 0.84);
   --background: transparent;
-  background: linear-gradient(to bottom, #12002b 0%, #3a0a5e 45%, #b0186e 75%, #ff7a3d 100%) fixed;
+  background:
+    /* Stars in the upper sky */
+    radial-gradient(1.5px 1.5px at 12% 8%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 27% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 41% 5%, #ffd6f0 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 17%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 73% 9%, #c8fbff 50%, transparent 51%),
+    radial-gradient(1px 1px at 86% 26%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 6%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 31%, #fff 50%, transparent 51%),
+    linear-gradient(to bottom, #0b0120 0%, #2a0752 40%, #8e1470 70%, #ff5e62 90%, #ffb347 100%);
+  background-attachment: fixed;
 }
 
-/* Striped retro sun */
-[data-vice] body::before {
+/* Striped retro sun, setting behind the grid horizon */
+[data-vice]::before {
   content: "";
   position: fixed;
   left: 50%;
-  bottom: 6vh;
+  bottom: 16vh;
   width: min(60vmin, 520px);
   aspect-ratio: 1;
   translate: -50% 0;
@@ -584,6 +595,39 @@ h6 {
   );
 }
 
+/* Neon grid floor rolling toward the viewer */
+[data-vice] body::before {
+  content: "";
+  position: fixed;
+  left: -50vw;
+  right: -50vw;
+  bottom: 0;
+  height: 42vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(to right, rgb(255 46 151 / 0.75) 0 2px, transparent 2px 70px),
+    repeating-linear-gradient(to bottom, rgb(0 225 255 / 0.6) 0 2px, transparent 2px 56px),
+    linear-gradient(to bottom, #1b0336, #34064f);
+  transform: perspective(600px) rotateX(52deg);
+  transform-origin: bottom;
+  /* Fade the far edge into the horizon glow */
+  mask-image: linear-gradient(to bottom, transparent, #000 35%);
+  animation: vice-grid 1.4s linear infinite;
+}
+
+@keyframes vice-grid {
+  to {
+    background-position: 0 0, 0 56px, 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-vice] body::before {
+    animation: none;
+  }
+}
+
 /* Palm silhouettes in the bottom corners */
 [data-vice] body::after {
   content: "";
@@ -598,14 +642,133 @@ h6 {
       right -2vw bottom -1vh / auto 46vh no-repeat;
 }
 
-/* Neon-sign headings */
+/* Headings: dark outline + hot-pink glow, like the Vice City logo */
 [data-vice] h1,
 [data-vice] h2,
 [data-vice] .pixel-title {
   text-shadow:
-    0 0 6px #ff2e97,
-    0 0 18px #ff2e97,
-    0 0 36px #00e1ff;
+    2px 2px 0 #1a0033,
+    -1px -1px 0 #1a0033,
+    0 0 12px #ff2e97,
+    0 0 30px #ff2e97;
+}
+
+/* ---- Type: pixel font out, neon tubes + sporty italic in ---- */
+[data-vice] body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Big titles use the pink brush script of the Vice City logo.
+   Titles are typed in caps, so drop them to "Sentence case" (script caps look wrong),
+   and font-size-adjust makes up for the script's small letters. */
+[data-vice] h2,
+[data-vice] .no-pixel h2,
+[data-vice] .pixel-title,
+[data-vice] .no-pixel .pixel-title {
+  font-family: var(--font-vice), cursive !important;
+  font-weight: 400 !important;
+  font-size-adjust: 0.62;
+  letter-spacing: 0 !important;
+  line-height: 1.15;
+  text-transform: lowercase;
+  color: #ff5fb4;
+  display: inline-block;
+  transform: rotate(-4deg);
+  padding-inline: 0.2em;
+}
+[data-vice] h2::first-letter,
+[data-vice] .pixel-title::first-letter {
+  text-transform: uppercase;
+}
+
+/* Everything that was pixel chrome gets a bold italic, like an 80s TV title card.
+   font-size-adjust grows it to roughly the pixel font's footprint. */
+[data-vice] :is(h3, h4, h5, h6),
+[data-vice] .no-pixel :is(h3, h4, h5, h6),
+[data-vice] .font-arcade,
+[data-vice] .eyebrow {
+  font-family: var(--font-vice-ui), var(--font-geist-sans), sans-serif !important;
+  font-style: italic;
+  font-weight: 800 !important;
+  font-size-adjust: 0.62;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+}
+
+/* Section eyebrows become neon pills */
+[data-vice] .eyebrow {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  border: 2px solid var(--color-orange-500);
+  border-radius: 999px;
+  color: var(--color-orange-400);
+  box-shadow: 0 0 14px -2px var(--color-orange-500);
+}
+
+/* ---- Borders: chunky pixel frames become thin rounded neon ---- */
+[data-vice] .border-4 {
+  border-width: 2px;
+  border-radius: 16px;
+}
+[data-vice] .border-2 {
+  border-radius: 10px;
+}
+[data-vice] .border-b-4 {
+  border-bottom-width: 2px;
+}
+[data-vice] .border-dashed {
+  border-radius: 12px;
+}
+[data-vice] .border-4.border-yellow-400 {
+  box-shadow:
+    0 0 18px -3px var(--color-yellow-400),
+    inset 0 0 18px -10px var(--color-yellow-400);
+}
+[data-vice] .border-4.border-orange-500 {
+  box-shadow:
+    0 0 18px -3px var(--color-orange-500),
+    inset 0 0 18px -10px var(--color-orange-500);
+}
+[data-vice] header.border-b-4 {
+  box-shadow: 0 0 22px -4px var(--color-yellow-400);
+}
+
+/* Dark panels turn to frosted glass over the sunset */
+[data-vice] .border-4:is(.bg-black, [class*="bg-black/"]) {
+  backdrop-filter: blur(8px);
+}
+
+/* Solid highlight cards (contact, hero stats) become sunset gradients */
+[data-vice] .bg-yellow-400.border-4 {
+  background-image: linear-gradient(150deg, #ff2e97, #ff8a4c);
+}
+[data-vice] .bg-orange-500.border-4 {
+  background-image: linear-gradient(150deg, #00e1ff, #7b61ff);
+}
+
+/* Buttons become glowing gradient pills */
+[data-vice] :is(a, button).bg-orange-500 {
+  border-radius: 999px;
+  border-color: transparent;
+  background-image: linear-gradient(90deg, #ff2e97, #ff8a4c);
+  color: #fff;
+  box-shadow: 0 0 18px -4px #ff2e97;
+  transition: filter 200ms, box-shadow 200ms;
+}
+[data-vice] :is(a, button).bg-orange-500:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 0 26px -2px #ff2e97;
+}
+
+/* Inventory: a soft neon glow replaces the pixel bracket cursor */
+[data-vice] .inv-cursor {
+  display: none;
+}
+[data-vice] [data-slot] {
+  border-radius: 14px;
+}
+[data-vice] [data-slot][aria-pressed="true"] {
+  box-shadow: 0 0 20px -2px var(--color-yellow-400);
 }
 
 /* Script name in the hero (and the splash screen) */

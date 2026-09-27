@@ -45,7 +45,7 @@ export function ContactSection() {
     <section className="py-24 px-4 bg-black">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2">&gt; WARP ZONE...</div>
+          <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; WARP ZONE...</div>
           <h2 className="text-xl md:text-2xl font-bold text-white mb-4">CONNECT & COLLABORATE</h2>
           <p className="text-white max-w-2xl mx-auto">
             Ready the next level? Let's team up and build something super! Don't worry, crossplay is enabled

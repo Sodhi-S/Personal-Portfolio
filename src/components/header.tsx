@@ -60,8 +60,8 @@ export function Header() {
                   aria-label={item.label}
                   aria-current={activeSection === item.id ? "true" : undefined}
                   className={`flex items-center gap-2 px-2 py-1 xl:px-3 xl:py-2 font-arcade text-[10px] font-bold tracking-wider whitespace-nowrap border-2 cursor-pointer transition-all duration-200 ${activeSection === item.id
-                      ? "bg-yellow-400 text-black border-orange-500"
-                      : "text-white border-transparent hover:bg-orange-500 hover:border-yellow-400"
+                    ? "bg-yellow-400 text-black border-orange-500"
+                    : "text-white border-transparent hover:bg-orange-500 hover:border-yellow-400"
                     }`}
                 >
                   <span className="text-base xl:text-sm">{item.icon}</span>
@@ -73,8 +73,15 @@ export function Header() {
             {/* Score Display */}
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center space-x-4 font-arcade text-[10px] font-bold">
-                <div className="hidden 2xl:block text-yellow-400">COINS: 999</div>
-                <div className="text-orange-500 whitespace-nowrap">WORLD: 1-1</div>
+                <div className="hidden 2xl:block text-yellow-400">
+                  <span className="vice-hide">COINS: 999</span>
+                  {/* GTA-style HUD in Vice City mode */}
+                  <span className="vice-only">$999999</span>
+                </div>
+                <div className="text-orange-500 whitespace-nowrap">
+                  <span className="vice-hide">WORLD: 1-1</span>
+                  <span className="vice-only" aria-label="Wanted level 3 of 6">★★★<span className="opacity-30">★★★</span></span>
+                </div>
               </div>
               <ViceCityToggle />
             </div>
@@ -95,8 +102,8 @@ export function Header() {
               onClick={() => scrollTo(item.id)}
               aria-current={active ? "true" : undefined}
               className={`flex items-center gap-3 px-3 py-2.5 font-arcade text-[9px] font-bold tracking-wider whitespace-nowrap border-2 cursor-pointer transition-all duration-200 ${active
-                  ? "bg-yellow-400 text-black border-orange-500"
-                  : "text-white border-transparent hover:bg-orange-500 hover:text-black hover:border-yellow-400 hover:translate-x-1"
+                ? "bg-yellow-400 text-black border-orange-500"
+                : "text-white border-transparent hover:bg-orange-500 hover:text-black hover:border-yellow-400 hover:translate-x-1"
                 }`}
             >
               <span className="text-base leading-none" aria-hidden="true">{item.icon}</span>

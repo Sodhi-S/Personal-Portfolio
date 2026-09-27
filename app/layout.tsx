@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import localFont from "next/font/local"
-import { Mr_Dafoe } from "next/font/google"
+import { Kanit, Mr_Dafoe } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
@@ -23,6 +23,17 @@ const viceScript = Mr_Dafoe({
   weight: "400",
   variable: "--font-vice",
   display: "swap",
+})
+
+// Vice City mode swaps the pixel font for a sporty italic (titles reuse Mr Dafoe).
+// Not preloaded: only fetched once the easter egg is turned on.
+const viceUi = Kanit({
+  subsets: ["latin"],
+  weight: ["600", "800"],
+  style: "italic",
+  variable: "--font-vice-ui",
+  display: "swap",
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -48,7 +59,7 @@ export default function RootLayout({
         {/* Runs before first paint so the boot screen never flashes after it's been seen. */}
         <script dangerouslySetInnerHTML={{ __html: BOOT_SEEN_SCRIPT }} />
       </head>
-      <body className={`font-mono ${GeistSans.variable} ${GeistMono.variable} ${pressStart2P.variable} ${viceScript.variable} antialiased`}>
+      <body className={`font-mono ${GeistSans.variable} ${GeistMono.variable} ${pressStart2P.variable} ${viceScript.variable} ${viceUi.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

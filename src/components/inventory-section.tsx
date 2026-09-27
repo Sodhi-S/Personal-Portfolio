@@ -65,7 +65,7 @@ export function InventorySection() {
     <section className="no-pixel py-24 px-4 bg-black">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2">&gt; OPENING INVENTORY...</div>
+          <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; OPENING INVENTORY...</div>
           <h2 className="pixel-title text-3xl md:text-4xl font-bold text-white mb-4">INVENTORY</h2>
           <p className="text-white max-w-2xl mx-auto">Items collected along the way</p>
         </div>
