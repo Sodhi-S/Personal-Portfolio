@@ -297,6 +297,66 @@ h6 {
   animation: trophy-drop 550ms ease-out both;
 }
 
+/* Inventory: slots pop in, and the selected item is held up like an ITEM GET */
+@keyframes item-pop {
+  0% {
+    opacity: 0;
+    scale: 0.6;
+  }
+  70% {
+    opacity: 1;
+    scale: 1.08;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.animate-item-pop {
+  animation: item-pop 300ms ease-out both;
+}
+
+@keyframes item-get {
+  0% {
+    translate: 0 12px;
+    opacity: 0;
+  }
+  50% {
+    translate: 0 -8px;
+    opacity: 1;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+.animate-item-get {
+  animation: item-get 380ms ease-out both;
+}
+
+/* Four pixel corner brackets around the selected slot */
+.inv-cursor {
+  --c: var(--color-yellow-400);
+  background:
+    linear-gradient(var(--c) 0 0) top left / 10px 3px,
+    linear-gradient(var(--c) 0 0) top left / 3px 10px,
+    linear-gradient(var(--c) 0 0) top right / 10px 3px,
+    linear-gradient(var(--c) 0 0) top right / 3px 10px,
+    linear-gradient(var(--c) 0 0) bottom left / 10px 3px,
+    linear-gradient(var(--c) 0 0) bottom left / 3px 10px,
+    linear-gradient(var(--c) 0 0) bottom right / 10px 3px,
+    linear-gradient(var(--c) 0 0) bottom right / 3px 10px;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-item-pop,
+  .animate-item-get {
+    animation: none;
+  }
+}
+
 /* Sparkles on gold trophies */
 @keyframes twinkle {
   0%,
