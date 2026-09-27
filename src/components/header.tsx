@@ -1,6 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import { ViceCityToggle } from "@/components/vice-city"
 
 const navItems = [
   { id: "home", label: "HOME", icon: "🏠" },
@@ -40,7 +40,6 @@ export function Header() {
 
   return (
     <>
-      {/* Top bar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b-4 border-yellow-400">
         <div className="px-4">
           <div className="flex items-center justify-between h-16">
@@ -49,55 +48,63 @@ export function Header() {
               <div className="w-8 h-8 bg-yellow-400 border-2 border-orange-500 flex items-center justify-center text-black font-bold text-sm">
                 SS
               </div>
-              <span className="text-white font-arcade font-bold text-xs sm:text-sm tracking-wider">SAHEJ SODHI</span>
+              <span className="hidden sm:inline text-white font-arcade font-bold text-xs lg:text-sm tracking-wider">SAHEJ SODHI</span>
             </button>
 
-            {/* Mobile nav (icons) */}
-            <nav className="flex md:hidden items-center gap-1 overflow-x-auto">
+            {/* Top-bar nav until the floating island has room (2xl) */}
+            <nav className="flex 2xl:hidden items-center gap-1 xl:gap-2 overflow-x-auto">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
                   aria-label={item.label}
-                  className={`px-2 py-1 text-base border-2 transition-all duration-200 ${activeSection === item.id
-                      ? "bg-yellow-400 border-orange-500"
-                      : "border-transparent hover:border-yellow-400"
+                  aria-current={activeSection === item.id ? "true" : undefined}
+                  className={`flex items-center gap-2 px-2 py-1 xl:px-3 xl:py-2 font-arcade text-[10px] font-bold tracking-wider whitespace-nowrap border-2 cursor-pointer transition-all duration-200 ${activeSection === item.id
+                      ? "bg-yellow-400 text-black border-orange-500"
+                      : "text-white border-transparent hover:bg-orange-500 hover:border-yellow-400"
                     }`}
                 >
-                  {item.icon}
+                  <span className="text-base xl:text-sm">{item.icon}</span>
+                  <span className="hidden xl:inline">{item.label}</span>
                 </button>
               ))}
             </nav>
 
             {/* Score Display */}
-            <div className="hidden sm:flex items-center space-x-4 font-arcade text-[10px] font-bold">
-              <div className="text-yellow-400">COINS: 999</div>
-              <div className="text-orange-500">WORLD: 1-1</div>
+            <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center space-x-4 font-arcade text-[10px] font-bold">
+                <div className="hidden 2xl:block text-yellow-400">COINS: 999</div>
+                <div className="text-orange-500 whitespace-nowrap">WORLD: 1-1</div>
+              </div>
+              <ViceCityToggle />
             </div>
           </div>
         </div>
       </header>
 
-      {/* Left sidebar (desktop) */}
-      <aside className="hidden md:flex fixed left-0 top-16 bottom-0 w-52 z-40 flex-col bg-black/95 backdrop-blur-sm border-r-4 border-yellow-400 p-3 gap-2">
-        <div className="text-yellow-400 font-arcade text-[8px] font-bold tracking-[0.2em] text-center mb-2 mt-2">
-          SELECT LEVEL
-        </div>
-        {navItems.map((item) => (
-          <Button
-            key={item.id}
-            variant="ghost"
-            onClick={() => scrollTo(item.id)}
-            className={`w-full justify-start px-3 py-2 font-arcade text-[10px] font-bold tracking-wider transition-all duration-200 border-2 cursor-pointer ${activeSection === item.id
-                ? "bg-yellow-400 text-black border-orange-500"
-                : "text-white hover:text-white hover:bg-orange-500 border-transparent hover:border-yellow-400"
-              }`}
-          >
-            <span className="mr-3">{item.icon}</span>
-            {item.label}
-          </Button>
-        ))}
-      </aside>
+      {/* Floating island section selector (2xl+) */}
+      <nav
+        aria-label="Sections"
+        className="hidden 2xl:flex fixed left-5 top-1/2 -translate-y-1/2 z-40 flex-col gap-1.5 p-2 bg-black/90 backdrop-blur-sm border-4 border-yellow-400 shadow-[0_0_24px_color-mix(in_oklab,var(--color-yellow-400)_25%,transparent)] animate-island-in"
+      >
+        {navItems.map((item) => {
+          const active = activeSection === item.id
+          return (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              aria-current={active ? "true" : undefined}
+              className={`flex items-center gap-3 px-3 py-2.5 font-arcade text-[9px] font-bold tracking-wider whitespace-nowrap border-2 cursor-pointer transition-all duration-200 ${active
+                  ? "bg-yellow-400 text-black border-orange-500"
+                  : "text-white border-transparent hover:bg-orange-500 hover:text-black hover:border-yellow-400 hover:translate-x-1"
+                }`}
+            >
+              <span className="text-base leading-none" aria-hidden="true">{item.icon}</span>
+              {item.label}
+            </button>
+          )
+        })}
+      </nav>
     </>
   )
 }

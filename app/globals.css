@@ -208,6 +208,129 @@ h6 {
   animation: blink 1s steps(1, end) infinite;
 }
 
+/* Character select: CRT "power on" for the player card */
+@keyframes crt-on {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.6) scaleY(0.02);
+    filter: brightness(3);
+  }
+  35% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(0.02);
+  }
+  45% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 1;
+    transform: scaleY(1.04);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.animate-crt-on {
+  animation: crt-on 650ms ease-out both;
+}
+
+/* Two-frame arcade idle bob */
+@keyframes idle-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4%);
+  }
+}
+
+.animate-idle-bob {
+  animation: idle-bob 1.2s steps(1, end) infinite;
+}
+
+/* Floating section selector sliding in from the left edge */
+@keyframes island-in {
+  from {
+    opacity: 0;
+    translate: -120% -50%;
+  }
+  to {
+    opacity: 1;
+    translate: 0 -50%;
+  }
+}
+
+.animate-island-in {
+  animation: island-in 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-idle-bob,
+  .animate-island-in {
+    animation: none;
+  }
+}
+
+/* Trophy case: trophies drop onto their shelf */
+@keyframes trophy-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-trophy-drop {
+  animation: trophy-drop 550ms ease-out both;
+}
+
+/* Sparkles on gold trophies */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    scale: 0.4;
+  }
+  50% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-twinkle {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* The boot screen's terminal stands in for the hero one until it lands. */
+[data-booting] #hero-terminal {
+  visibility: hidden;
+}
+
+/* Already played this session (set by an inline script before first paint). */
+[data-boot-seen] #boot-screen {
+  display: none;
+}
+
 /* Pac-Man chase scene (replaces the hero mushroom) */
 .pac-stage {
   position: relative;
@@ -352,4 +475,132 @@ h6 {
     transparent 1px,
     transparent 3px
   );
+}
+
+/* ============================================================
+   Vice City easter egg — toggled by "WORLD" in the top bar
+   (src/components/vice-city.tsx sets <html data-vice>).
+   Tailwind reads every colour from these variables, so remapping
+   them re-themes the whole site.
+   ============================================================ */
+[data-vice] {
+  --color-yellow-300: #ff6ec7;
+  --color-yellow-400: #ff2e97;
+  --color-yellow-500: #f0138a;
+  --color-orange-400: #7df9ff;
+  --color-orange-500: #00e1ff;
+  --color-orange-600: #00b3d6;
+  /* Night-purple, slightly see-through so the sunset shows behind sections */
+  --color-black: rgb(22 8 48 / 0.84);
+  --background: transparent;
+  background: linear-gradient(to bottom, #12002b 0%, #3a0a5e 45%, #b0186e 75%, #ff7a3d 100%) fixed;
+}
+
+/* Striped retro sun */
+[data-vice] body::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  bottom: 6vh;
+  width: min(60vmin, 520px);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #ffe66d 0%, #ff9a3c 40%, #ff2e97 78%);
+  filter: drop-shadow(0 0 40px #ff2e97);
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0 55%,
+    transparent 55% 58%,
+    #000 58% 66%,
+    transparent 66% 70%,
+    #000 70% 77%,
+    transparent 77% 82%,
+    #000 82% 88%,
+    transparent 88% 95%,
+    #000 95%
+  );
+}
+
+/* Palm silhouettes in the bottom corners */
+[data-vice] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cg fill='%230d0221'%3E%3Cpath d='M92 300C96 230 104 160 116 92l8 2c-10 66-16 136-18 206z'/%3E%3Cpath d='M120 90C90 70 50 75 20 110c35-22 70-22 100-14z'/%3E%3Cpath d='M120 90C95 55 60 40 30 45c35 10 65 25 90 49z'/%3E%3Cpath d='M120 90c0-35 15-65 40-80-20 30-30 55-36 82z'/%3E%3Cpath d='M120 90c30-30 65-35 80-20-25-2-50 8-78 26z'/%3E%3Cpath d='M120 90c40 5 65 30 75 60-20-25-45-42-75-52z'/%3E%3Cpath d='M118 94c-23 11-43 36-48 66 15-25 30-45 50-60z'/%3E%3C/g%3E%3C/svg%3E")
+      left -2vw bottom -1vh / auto 58vh no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cg fill='%230d0221' transform='translate(200 0) scale(-1 1)'%3E%3Cpath d='M92 300C96 230 104 160 116 92l8 2c-10 66-16 136-18 206z'/%3E%3Cpath d='M120 90C90 70 50 75 20 110c35-22 70-22 100-14z'/%3E%3Cpath d='M120 90C95 55 60 40 30 45c35 10 65 25 90 49z'/%3E%3Cpath d='M120 90c0-35 15-65 40-80-20 30-30 55-36 82z'/%3E%3Cpath d='M120 90c30-30 65-35 80-20-25-2-50 8-78 26z'/%3E%3Cpath d='M120 90c40 5 65 30 75 60-20-25-45-42-75-52z'/%3E%3Cpath d='M118 94c-23 11-43 36-48 66 15-25 30-45 50-60z'/%3E%3C/g%3E%3C/svg%3E")
+      right -2vw bottom -1vh / auto 46vh no-repeat;
+}
+
+/* Neon-sign headings */
+[data-vice] h1,
+[data-vice] h2,
+[data-vice] .pixel-title {
+  text-shadow:
+    0 0 6px #ff2e97,
+    0 0 18px #ff2e97,
+    0 0 36px #00e1ff;
+}
+
+/* Script name in the hero (and the splash screen) */
+.font-vice,
+[data-vice] .vice-script {
+  font-family: var(--font-vice), cursive !important;
+  letter-spacing: 0 !important;
+}
+[data-vice] .vice-script {
+  display: inline-block;
+  font-size: 1.9em;
+  line-height: 1.1;
+  padding-inline: 0.2em;
+}
+.vice-only {
+  display: none;
+}
+[data-vice] .vice-only {
+  display: inline-block;
+}
+[data-vice] .vice-hide {
+  display: none;
+}
+
+.vice-neon {
+  text-shadow:
+    0 0 8px #ff2e97,
+    0 0 24px #ff2e97,
+    0 0 48px #00e1ff;
+}
+
+/* Pac-Man scene uses fixed colours; recolour it too */
+[data-vice] .pac-stage {
+  background: rgb(22 8 48);
+  border-color: var(--color-orange-500);
+}
+[data-vice] .pacman,
+[data-vice] .pac-dot {
+  background: var(--color-yellow-400);
+}
+
+/* Splash that covers the theme swap */
+@keyframes vice-splash {
+  0% {
+    opacity: 0;
+  }
+  30%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-vice-splash {
+  animation: vice-splash 1500ms ease-in-out both;
 }

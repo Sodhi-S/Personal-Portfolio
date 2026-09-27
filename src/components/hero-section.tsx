@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import RaceCarGameModal from "@/components/RaceCarGameModal"
-import { useEffect, useState } from "react"
+import { HeroTerminal } from "@/components/boot-screen"
 
 function Ghost({ color }: { color: string }) {
   return (
@@ -19,26 +19,7 @@ function Ghost({ color }: { color: string }) {
   )
 }
 
-function useTypewriter(text: string, speed = 40) {
-  const [out, setOut] = useState("")
-  useEffect(() => {
-    setOut("")
-    let i = 0
-    const id = setInterval(() => {
-      i++
-      setOut(text.slice(0, i))
-      if (i >= text.length) clearInterval(id)
-    }, speed)
-    return () => clearInterval(id)
-  }, [text, speed])
-  return out
-}
-
 export function HeroSection() {
-  const bootText =
-    "> BOOTING PLAYER.EXE...\n> LEVEL: DATA & SOFTWARE ENGINEER\n> LOCATION: TORONTO, ON\n> INSERT COIN TO START"
-  const typed = useTypewriter(bootText, 32)
-
   return (
     <section className="relative pt-32 pb-44 px-4 overflow-hidden">
       {/* CRT scanline overlay */}
@@ -49,18 +30,19 @@ export function HeroSection() {
           {/* Mario-style title */}
           <div className="space-y-6">
             <h1 className="text-3xl md:text-5xl font-bold leading-[1.4] tracking-wider">
-              <span className="text-yellow-400">SAHEJ</span>
-              <span> </span>
-              <span className="text-orange-500">SODHI</span>
+              <span className="vice-hide">
+                <span className="text-yellow-400">SAHEJ</span>
+                <span> </span>
+                <span className="text-orange-500">SODHI</span>
+              </span>
+              {/* Script name for the Vice City easter egg */}
+              <span className="vice-only vice-script -rotate-6">
+                <span className="text-yellow-400">Sahej</span> <span className="text-orange-500">Sodhi</span>
+              </span>
             </h1>
 
             {/* Arcade terminal */}
-            <div className="mx-auto max-w-xl bg-black border-4 border-yellow-400 p-4 text-left shadow-[0_0_20px_rgba(250,204,21,0.25)]">
-              <div className="text-yellow-400 font-arcade text-[9px] md:text-xs whitespace-pre-line leading-[2] min-h-[7.5rem] md:min-h-[8.5rem]">
-                {typed}
-                <span className="animate-blink">█</span>
-              </div>
-            </div>
+            <HeroTerminal />
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap font-arcade">

@@ -1,3 +1,4 @@
+import { BootScreen } from "@/components/boot-screen"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutMe } from "@/components/about-me"
@@ -10,18 +11,17 @@ import { Footer } from "@/components/footer"
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
+      <BootScreen />
       <Header />
-      <div className="md:pl-52">
-        <main>
-          <section id="home"><HeroSection /></section>
-          <section id="about"><AboutMe /></section>
-          <section id="experience"><ExperienceSection /></section>
-          <section id="projects"><ProjectsSection /></section>
-          <section id="skills"><SkillsSection /></section>
-          <section id="contact"><ContactSection /></section>
-        </main>
-        <Footer />
-      </div>
+      <main>
+        <section id="home" className="scroll-mt-16"><HeroSection /></section>
+        <section id="about" className="scroll-mt-16"><AboutMe /></section>
+        <section id="experience" className="scroll-mt-16"><ExperienceSection /></section>
+        <section id="projects" className="scroll-mt-16"><ProjectsSection /></section>
+        <section id="skills" className="scroll-mt-16"><SkillsSection /></section>
+        <section id="contact" className="scroll-mt-16"><ContactSection /></section>
+      </main>
+      <Footer />
     </div>
   )
 }
