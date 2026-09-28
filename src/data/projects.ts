@@ -13,7 +13,7 @@ export interface Project {
 // in this order within a shelf.
 export const projects: Project[] = [
   {
-    title: "SPOTIFY ANALYTICS PLATFORM",
+    title: "SPOTIFY ANALYTICS",
     description:
       "End-to-end music analytics surfacing 1+ years of personalized listening trends — a raw-to-mart dbt warehouse (15 models, 6+ APIs) feeding a Hugging Face mood-inference ingestion pipeline.",
     tech: ["PostgreSQL", "dbt", "Hugging Face", "FastAPI", "React", "Python"],

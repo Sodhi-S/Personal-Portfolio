@@ -29,7 +29,7 @@ const viceScript = Mr_Dafoe({
 // Not preloaded: only fetched once the easter egg is turned on.
 const viceUi = Kanit({
   subsets: ["latin"],
-  weight: ["600", "800"],
+  weight: ["300", "500"],
   style: "italic",
   variable: "--font-vice-ui",
   display: "swap",

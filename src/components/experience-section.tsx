@@ -55,9 +55,6 @@ export function ExperienceSection() {
         <div className="text-center mb-12">
           <div className="text-orange-500 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; BOSS BATTLES CLEARED...</div>
           <h2 className="pixel-title text-3xl md:text-4xl font-bold text-white mb-4">QUEST LOG</h2>
-          <p className="text-white max-w-2xl mx-auto">
-            Bosses Defeated
-          </p>
         </div>
 
         <ol ref={listRef} className="relative space-y-10">
@@ -86,16 +83,15 @@ export function ExperienceSection() {
                 />
 
                 <div
-                  className={`p-5 bg-yellow-400 border-4 border-orange-500 hover:scale-[1.02] transition-all duration-500 ease-out ${
-                    shown ? "opacity-100 translate-x-0" : `opacity-0 translate-x-8 ${onLeft ? "md:-translate-x-8" : ""}`
-                  }`}
+                  className={`p-5 bg-yellow-400 border-4 border-orange-500 hover:scale-[1.02] transition-all duration-500 ease-out ${shown ? "opacity-100 translate-x-0" : `opacity-0 translate-x-8 ${onLeft ? "md:-translate-x-8" : ""}`
+                    }`}
                 >
                   <div className="inline-block px-2 py-1 mb-3 bg-black text-white text-xs font-bold border-2 border-orange-500 whitespace-nowrap">
                     {exp.dates}
                   </div>
                   <h3 className="text-lg font-bold text-black tracking-wider">{exp.company}</h3>
                   <div className="text-sm font-bold text-orange-600">{exp.role}</div>
-                  <div className="text-xs font-bold text-black/70 mt-2">📍 {exp.location}</div>
+                  {exp.location && <div className="text-xs font-bold text-black/70 mt-2">📍 {exp.location}</div>}
                 </div>
               </li>
             )

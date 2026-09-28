@@ -47,9 +47,6 @@ export function ContactSection() {
         <div className="text-center mb-12">
           <div className="text-yellow-400 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; WARP ZONE...</div>
           <h2 className="text-xl md:text-2xl font-bold text-white mb-4">CONNECT & COLLABORATE</h2>
-          <p className="text-white max-w-2xl mx-auto">
-            Ready the next level? Let's team up and build something super! Don't worry, crossplay is enabled
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -72,11 +69,11 @@ export function ContactSection() {
                 className="mt-auto w-full font-bold text-xs tracking-wider bg-orange-500 hover:bg-orange-600 text-black border-2 border-black"
                 asChild={!!method.link}
               >
-              {method.link.startsWith("mailto:") ? (
-                <a href={method.link}>{method.action}</a>
-              ) : (
-                <a href={method.link} target="_blank" rel="noopener noreferrer">{method.action}</a>
-              )}
+                {method.link.startsWith("mailto:") ? (
+                  <a href={method.link}>{method.action}</a>
+                ) : (
+                  <a href={method.link} target="_blank" rel="noopener noreferrer">{method.action}</a>
+                )}
               </Button>
             </div>
           ))}

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import RaceCarGameModal from "@/components/RaceCarGameModal"
 import { HeroTerminal } from "@/components/boot-screen"
+import { ViceChase } from "@/components/vice-chase"
 
 function Ghost({ color }: { color: string }) {
   return (
@@ -83,7 +84,11 @@ export function HeroSection() {
           </div>
 
           <div className="flex justify-center mt-8">
-            <div className="pac-stage" aria-hidden="true">
+            {/* Vice City mode swaps Pac-Man for a police chase */}
+            <div className="vice-only">
+              <ViceChase />
+            </div>
+            <div className="pac-stage vice-hide" aria-hidden="true">
               <span className="pac-dot d1" />
               <span className="pac-dot d2" />
               <span className="pac-dot d3" />

@@ -7,7 +7,7 @@ import { useSeenOnce } from "@/hooks/use-seen-once"
 const PROFILE = [
   { label: "CLASS", value: "Data / Software Engineer" },
   { label: "HOMEBASE", value: "University of Waterloo" },
-  { label: "LEVEL", value: "3rd Year" },
+  { label: "LEVEL", value: "4th Year" },
   { label: "LOCATION", value: "Toronto, Canada" },
 ]
 
@@ -17,7 +17,7 @@ const STATS = [
   { label: "BACKEND", value: 8 },
   { label: "SHIP SPEED", value: 9 },
   { label: "MUSIC TASTE", value: 10, note: "BEST" },
-  { label: "CAFFEINE", value: 10, note: "COKE ZERO" },
+  { label: "CAFFEINE", value: 10, note: "BEST" },
 ]
 
 const QUEST = [
@@ -76,9 +76,8 @@ export function AboutMe() {
         <div className="grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-6 md:gap-8">
           {/* Player card */}
           <div
-            className={`relative bg-black border-4 border-yellow-400 p-5 flex flex-col items-center text-center shadow-[0_0_20px_color-mix(in_oklab,var(--color-yellow-400)_25%,transparent)] ${
-              seen ? (reduced ? "" : "animate-crt-on") : "opacity-0"
-            }`}
+            className={`relative bg-black border-4 border-yellow-400 p-5 flex flex-col items-center text-center shadow-[0_0_20px_color-mix(in_oklab,var(--color-yellow-400)_25%,transparent)] ${seen ? (reduced ? "" : "animate-crt-on") : "opacity-0"
+              }`}
           >
             <div className="absolute top-3 left-3 bg-orange-500 text-black font-arcade text-[10px] px-2 py-1 border-2 border-black">
               P1
@@ -101,9 +100,8 @@ export function AboutMe() {
               {PROFILE.map((p, i) => (
                 <div
                   key={p.label}
-                  className={`border-2 border-orange-500 px-3 py-2 transition-all duration-500 ease-out ${
-                    seen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-                  }`}
+                  className={`border-2 border-orange-500 px-3 py-2 transition-all duration-500 ease-out ${seen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                    }`}
                   style={{ transitionDelay: reduced ? "0ms" : `${150 + i * 80}ms` }}
                 >
                   <div className="font-arcade text-[8px] text-orange-500 mb-1">{p.label}</div>
@@ -125,9 +123,8 @@ export function AboutMe() {
                       return (
                         <div
                           key={seg}
-                          className={`h-3 flex-1 border border-black transition-colors duration-75 ${
-                            seen && on ? (i % 2 ? "bg-orange-500" : "bg-yellow-400") : "bg-white/10"
-                          }`}
+                          className={`h-3 flex-1 border border-black transition-colors duration-75 ${seen && on ? (i % 2 ? "bg-orange-500" : "bg-yellow-400") : "bg-white/10"
+                            }`}
                           style={{
                             transitionDelay: reduced ? "0ms" : `${BAR_START_MS + i * BAR_STAGGER_MS + seg * SEGMENT_MS}ms`,
                           }}

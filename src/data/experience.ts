@@ -11,12 +11,20 @@ export interface WorkExperience {
 // over time. The Experience timeline shows them in this same order.
 export const WORK_EXPERIENCES: WorkExperience[] = [
   {
+    company: "Brain Racers",
+    role: "Data and Development Intern",
+    dates: "Jan 2024 – May 2024",
+    location: "Toronto, ON",
+    color: "#FFE45C",
+    carLevel: 1,
+  },
+  {
     company: "Epoch",
     role: "Data Analytics Intern",
     dates: "Sep 2024 – Dec 2024",
     location: "San Francisco, CA",
     color: "#FFD700",
-    carLevel: 1,
+    carLevel: 2,
   },
   {
     company: "Epoch",
@@ -24,7 +32,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     dates: "May 2025 – Aug 2025",
     location: "San Francisco, CA",
     color: "#FFA500",
-    carLevel: 2,
+    carLevel: 3,
   },
   {
     company: "Stealth Startup",
@@ -32,7 +40,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     dates: "Sep 2025 – Present",
     location: "Toronto, ON",
     color: "#FF8C00",
-    carLevel: 3,
+    carLevel: 4,
   },
   {
     company: "Sapling Financial Consultants",
@@ -40,7 +48,7 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     dates: "Jan 2026 – May 2026",
     location: "Toronto, ON",
     color: "#FF7F50",
-    carLevel: 4,
+    carLevel: 5,
   },
   {
     company: "Owner.com",
@@ -48,6 +56,6 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     dates: "Sep 2026 – Present",
     location: "San Francisco, CA",
     color: "#FF6347",
-    carLevel: 5,
+    carLevel: 6,
   },
 ]

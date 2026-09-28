@@ -114,9 +114,8 @@ function TrophyItem({
   return (
     <article
       ref={itemRef}
-      className={`group relative flex flex-col items-center hover:z-30 focus-within:z-30 ${open ? "z-30" : ""} ${
-        seen ? (reduced ? "" : "animate-trophy-drop") : "opacity-0"
-      }`}
+      className={`group relative flex flex-col items-center hover:z-30 focus-within:z-30 ${open ? "z-30" : ""} ${seen ? (reduced ? "" : "animate-trophy-drop") : "opacity-0"
+        }`}
       style={drop}
     >
       <button
@@ -152,11 +151,10 @@ function TrophyItem({
       <div
         id={popoverId}
         role="tooltip"
-        className={`absolute top-full w-72 max-w-[85vw] pt-4 transition-all duration-200 ease-out ${ISLAND_ALIGN[col]} ${
-          open
+        className={`absolute top-full w-72 max-w-[85vw] pt-4 transition-all duration-200 ease-out ${ISLAND_ALIGN[col]} ${open
             ? "visible opacity-100 translate-y-0"
             : "invisible opacity-0 -translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
-        }`}
+          }`}
       >
         <div className="bg-black border-4 border-yellow-400 p-4 text-left shadow-[0_0_24px_color-mix(in_oklab,var(--color-yellow-400)_30%,transparent)]">
           <div className="flex items-center gap-2 mb-2">
@@ -184,9 +182,8 @@ function TrophyItem({
       {/* Pointer up to the trophy, centred on it whichever way the island is aligned */}
       <span
         aria-hidden="true"
-        className={`absolute top-full mt-2.5 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-black border-l-4 border-t-4 border-yellow-400 transition-opacity duration-200 ${
-          open ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
-        }`}
+        className={`absolute top-full mt-2.5 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-black border-l-4 border-t-4 border-yellow-400 transition-opacity duration-200 ${open ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+          }`}
       />
     </article>
   )
@@ -231,9 +228,6 @@ export function ProjectsSection() {
         <div className="text-center mb-12">
           <div className="text-orange-500 text-sm font-bold tracking-wider mb-2 eyebrow">&gt; ACHIEVEMENTS UNLOCKED...</div>
           <h2 className="pixel-title text-3xl md:text-4xl font-bold text-white mb-4">TROPHY CASE</h2>
-          <p className="text-white max-w-2xl mx-auto">
-            Things I&apos;ve built
-          </p>
         </div>
 
         {/* Shelves */}
