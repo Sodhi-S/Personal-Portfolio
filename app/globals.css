@@ -149,6 +149,14 @@
   transform: translateY(-50%);
 }
 
+/* Laptops: the floating nav island sits over the left edge, so shift section
+   content right of it (backgrounds stay full width). From 2xl it fits in the margin. */
+@media (min-width: 64rem) and (max-width: 95.999rem) {
+  main > section > section {
+    padding-left: 12rem;
+  }
+}
+
 /* Smooth single-page scroll + offset anchors below the fixed top bar */
 html {
   scroll-behavior: smooth;

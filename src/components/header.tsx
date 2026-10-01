@@ -51,8 +51,8 @@ export function Header() {
               <span className="hidden sm:inline text-white font-arcade font-bold text-xs lg:text-sm tracking-wider">SAHEJ SODHI</span>
             </button>
 
-            {/* Top-bar nav until the floating island has room (2xl) */}
-            <nav className="flex 2xl:hidden items-center gap-1 xl:gap-2 overflow-x-auto">
+            {/* Top-bar nav on phones and tablets; laptops and up get the floating island (lg) */}
+            <nav className="flex lg:hidden items-center gap-1 xl:gap-2 overflow-x-auto">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -73,7 +73,7 @@ export function Header() {
             {/* Score Display */}
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center space-x-4 font-arcade text-[10px] font-bold">
-                <div className="hidden 2xl:block text-yellow-400">
+                <div className="hidden lg:block text-yellow-400">
                   <span className="vice-hide">COINS: 999</span>
                   {/* GTA-style HUD in Vice City mode */}
                   <span className="vice-only">$999999</span>
@@ -89,10 +89,10 @@ export function Header() {
         </div>
       </header>
 
-      {/* Floating island section selector (2xl+) */}
+      {/* Floating island section selector (lg+, i.e. every laptop and desktop) */}
       <nav
         aria-label="Sections"
-        className="hidden 2xl:flex fixed left-5 top-1/2 -translate-y-1/2 z-40 flex-col gap-1.5 p-2 bg-black/90 backdrop-blur-sm border-4 border-yellow-400 shadow-[0_0_24px_color-mix(in_oklab,var(--color-yellow-400)_25%,transparent)] animate-island-in"
+        className="hidden lg:flex fixed left-5 top-1/2 -translate-y-1/2 z-40 flex-col gap-1.5 p-2 bg-black/90 backdrop-blur-sm border-4 border-yellow-400 shadow-[0_0_24px_color-mix(in_oklab,var(--color-yellow-400)_25%,transparent)] animate-island-in"
       >
         {navItems.map((item) => {
           const active = activeSection === item.id
